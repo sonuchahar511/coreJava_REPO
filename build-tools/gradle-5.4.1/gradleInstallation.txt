@@ -1,0 +1,7 @@
+Download gradle from official site:
+	https://downloads.gradle.org/distributions/gradle-5.4.1-all.zip
+set environment variables required for gradle.
+
+sudo vi /etc/profile.d/gradle.sh
+	export GRADLE_HOME=/home/chahar/applications/gradle-5.4.1
+	export PATH=${GRADLE_HOME}/bin:${PATH}
