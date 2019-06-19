@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+
+<!-- apache-ant-1.9.1 -->
+
+<project default="generatebean">
+    <property name="name" value="corejavarepo"/>
+
+    <target name="clean">
+        <echo message="Cleaning beans generated from xsd/wsdl file >>>>>>>>>>>>> "/>
+
+        <delete dir="gensrc" verbose="true"/>
+        <delete dir="target" verbose="true"/>
+
+        <delete verbose="true">
+            <fileset dir="." includes="${name}_*"/>
+        </delete>
+
+        <echo message="Cleaning DONE@@@@@@@@@@@@@@@@@@@@@@@"/>
+
+        <mkdir dir="gensrc"/>
+        <mkdir dir="target"/>
+
+    </target>
+
+    <target name="declare">
+        <!--Note: XjcTask is present in jaxb-2.2.4-xjc.jar file -->
+        <taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask">
+            <classpath>
+                <fileset dir="./build-tools/apache-ant-1.9.1/external_JAXB_Lib">
+                    <include name="*.jar"/>
+                </fileset>
+            </classpath>
+        </taskdef>
+    </target>
+
+    <target name="generatebean" depends="declare,clean">
+        <echo message="************* Generating java beans by JAXB compiler ***********************"/>
+
+        <!-- Compile all xsd in one time -->
+        <!-- <xjc destdir="gensrc" package="com.chahar.core.jaxb.xsd">
+            <schema dir="./src/main/resources/jaxb/xsd" includes="*.xsd" />
+            <binding dir="./src/main/resources/jaxb/xsd" includes="*.xjb" />
+        </xjc> -->
+
+        <!-- Compile one xsd in one time. POJO generated from Each xsd  can goes to different package. -->
+        <xjc destdir="gensrc" schema="./src/main/resources/jaxb/xsd/contact.xsd"
+             package="com.chahar.core.external_framework.jaxb_xsd_bean_generation_marshelling_unmarshelling.xsd.contact">
+            <produces dir="gensrc/com/chahar/core/jaxb/contact">
+                <include name="*.java"/>
+            </produces>
+        </xjc>
+
+        <xjc destdir="gensrc" schema="./src/main/resources/jaxb/xsd/employee.xsd"
+             package="com.chahar.core.external_framework.jaxb_xsd_bean_generation_marshelling_unmarshelling.xsd.employee"/>
+
+        <!-- generate pojo from wsdl is experimental. No success -->
+        <!-- <xjc destdir="gensrc" package="com.chahar.core.jaxb.wsdl">
+            <schema dir="./src/main/resources/jaxb/wsdl" includes="*.wsdl" />
+            <binding dir="./src/main/resources/jaxb/wsdl" includes="*.xjb" />
+        </xjc> -->
+
+
+        <echo message="################ Generation DONE ################################"/>
+    </target>
+
+</project>	

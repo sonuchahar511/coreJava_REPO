@@ -1,0 +1,43 @@
+Following below feature has been added in Java 8 LTS.
+
+1- default and static methods in Interfaces
+2- forEach() method in Iterable interface
+3- Functional Interfaces and Lambda Expressions
+4- Java Stream API for Bulk Data Operations on Collections
+5- Java Time API
+6- Collection API improvements
+7- Concurrency API improvements
+8- Java IO improvements
+9- Miscellaneous Core API improvements.
+
+==================================================================================================
+
+1- default and static methods in Interfaces
+foreach() defined in Iterable interface but we know that interfaces can’t have method body.
+From Java 8, interfaces are enhanced to have method with implementation.
+We can use default and static keyword to create interfaces with method implementation.
+
+    Differences between static and default methods in Java 8:
+        Default methods can be overriden in implementing class, while static cannot.
+        Static method belongs only to Interface class.( similar to static field - Interface class object).
+        static member(field& method) are part of interface. Overriding is not possible with static object.
+
+
+2- forEach() method in Iterable interface.
+forEach method implementation in Iterable interface is:
+
+    default void forEach(Consumer<? super T> action) {
+        Objects.requireNonNull(action);
+        for (T t : this) {
+            action.accept(t);
+        }
+    }
+
+3- Functional Interfaces and Lambda Expressions.
+A functional interface is an interface that contains only one abstract method. They can have only one functionality to exhibit.
+lambda expressions can be used to represent the instance of a functional interface.
+
+functional interface can have a number of default methods but only one abstract method.
+
+Question: Performance difference forloop, for each loop, foreach method
+

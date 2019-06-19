@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Contacts>
+    <Contact id="101">
+        <FirstName>yash1</FirstName>
+        <LastName>chahar1</LastName>
+        <PhoneNumber>1234567890</PhoneNumber>
+    </Contact>
+    <Contact id="201">
+        <FirstName>yash2</FirstName>
+        <LastName>chahar2</LastName>
+        <PhoneNumber>1234512345</PhoneNumber>
+    </Contact>
+</Contacts>

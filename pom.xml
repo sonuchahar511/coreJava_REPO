@@ -1,0 +1,100 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <groupId>com.chahar</groupId>
+  <artifactId>CORE_JAVA_REPO_PROJECT</artifactId>
+  
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>CORE_JAVA_REPO_PROJECT</name>
+  <url>http://maven.apache.org</url>
+  
+  <properties>
+  		<apache.velocity.version>1.7</apache.velocity.version>
+  		
+  		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <dependency>
+		<groupId>org.apache.velocity</groupId>
+		<artifactId>velocity</artifactId>
+		<version>${apache.velocity.version}</version>
+	</dependency>
+    
+    <dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-expression</artifactId>
+	    <version>4.1.4.RELEASE</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>com.sun.mail</groupId>
+		<artifactId>javax.mail</artifactId>
+		<version>1.5.5</version>
+	</dependency>
+    
+    <!-- jackson json parser from JSON Data to java bean -->
+    <dependency>
+		<groupId>org.codehaus.jackson</groupId>
+		<artifactId>jackson-mapper-asl</artifactId>
+		<version>1.9.13</version>
+	</dependency>
+    
+     <!-- Orika mapping (JAVA BEAN MAPPER) framework -->
+        <dependency>
+            <groupId>ma.glasnost.orika</groupId>
+            <artifactId>orika-core</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+    
+    <!-- generate pdf document -->
+    <dependency>
+	    <groupId>com.itextpdf</groupId>
+	    <artifactId>itextpdf</artifactId>
+	    <version>5.5.13</version>
+	</dependency>
+
+	<!-- for reading excel document -->
+	  <dependency>
+		  <groupId>org.apache.poi</groupId>
+		  <artifactId>poi</artifactId>
+		  <version>3.7</version>
+	  </dependency>
+     <dependency>
+          <groupId>org.apache.poi</groupId>
+          <artifactId>poi-ooxml</artifactId>
+          <version>3.7</version>
+      </dependency>
+
+	  <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+	  <dependency>
+		  <groupId>org.apache.commons</groupId>
+		  <artifactId>commons-lang3</artifactId>
+		  <version>3.5</version>
+	  </dependency>
+
+  </dependencies>
+  
+  <build>
+  		<plugins>
+  				<plugin>
+				        <groupId>org.apache.maven.plugins</groupId>
+				        <artifactId>maven-compiler-plugin</artifactId>
+				        <version>3.3</version>
+				        <configuration>
+					          <source>1.8</source>
+					          <target>1.8</target>
+				        </configuration>
+     			 </plugin>
+  		</plugins>
+  </build>
+</project>
