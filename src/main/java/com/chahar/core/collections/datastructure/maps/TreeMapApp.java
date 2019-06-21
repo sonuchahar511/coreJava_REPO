@@ -34,7 +34,6 @@ public class TreeMapApp {
 		for (int i = 1; i <= 5; i++) {
 			empMap.put(new Employee(i * 100, "yash" + i * 100, "chahar" + i * 100), i * 100);
 		}
-
 		// Note: will replace keyValue if given key exists in map
 		empMap.put(new Employee(200, "yash" + 200, "chahar" + 200), 29);
 		System.out.println(empMap);

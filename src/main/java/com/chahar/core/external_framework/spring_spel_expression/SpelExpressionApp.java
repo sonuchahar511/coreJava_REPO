@@ -12,7 +12,7 @@ public class SpelExpressionApp {
 		StandardEvaluationContext ctx = new StandardEvaluationContext();
 
 		ctx.setVariable("cores", Integer.valueOf(Runtime.getRuntime().availableProcessors()));
-		ctx.setVariable("employee", new SalariedEmployee(909, "yash@gmail.com", "yash", "chahar"));
+		ctx.setVariable("employee", new SalariedEmployee(100, "yash@gmail.com", "yash", "chahar"));
 		ctx.setVariable("performCheck",
 				SpelExpressionApp.class.getMethod("performValidation", new Class[] { Integer.class }));
 

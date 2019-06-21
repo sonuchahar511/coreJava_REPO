@@ -12,26 +12,30 @@ import javax.xml.bind.Marshaller;
 public class MarshallerApp {
 
 	public static void main(String[] args) throws JAXBException, FileNotFoundException, UnsupportedEncodingException {
-		PrintWriter out = new PrintWriter("./src/main/resources/generatedOutput/marshall/contacts.xml", "UTF-8");
 
-		JAXBContext jaxbContext = JAXBContext.newInstance("com.chahar.core.jaxb.marshelling");
+		try (PrintWriter out = new PrintWriter("./src/main/resources/generatedOutput/marshall/contacts.xml", "UTF-8")) {
+			JAXBContext jaxbContext = JAXBContext.newInstance(
+					"com.chahar.core.external_framework.jaxb_xsd_bean_generation_marshelling_unmarshelling.marshelling_unmarshelling");
+			// Note: ContactBean,ContactsBean,ObjectBean will generated from wsdl by xjc
+			// tool.
+			// for Bravity , these beans are copied into this package.
+			// Always use factory methods to initialise XML classes
+			ObjectFactory factory = new ObjectFactory();
+			ContactsBean contacts = factory.createContacts();
+
 		
-		//Note: ContactBean,ContactsBean,ObjectBean will generated from wsdl by xjc tool.
-		//for Bravity , these beans are copied into this package.
-		//Always use factory methods to initialise XML classes
-		ObjectFactory factory = new ObjectFactory();
-		ContactsBean contacts = factory.createContacts();
-		
-		//ContactsBean contacts = new ContactsBean();
-		createTestData(contacts);
+			createTestData(contacts);
 
-		// Now Create JAXB XML Marshallar
-		Marshaller marshaller = jaxbContext.createMarshaller();
-		marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+			// Now Create JAXB XML Marshallar
+			Marshaller marshaller = jaxbContext.createMarshaller();
+			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
-		// Write the XML File
-		marshaller.marshal(contacts, out);
-		out.close();
+			// Write the XML File
+			marshaller.marshal(contacts, out);
+			out.checkError();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	private static void createTestData(ContactsBean contacts) {

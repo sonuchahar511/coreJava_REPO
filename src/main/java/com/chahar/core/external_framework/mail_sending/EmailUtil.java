@@ -33,11 +33,8 @@ public class EmailUtil {
 			Transport.send(msg);
 
 			System.out.println("EMail Sent Successfully!!");
-		} catch (MessagingException e) {
-			e.printStackTrace();
-		}catch (UnsupportedEncodingException e) {
+		} catch (MessagingException |UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		
 	}
 }

@@ -32,15 +32,16 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _FirstName_QNAME = new QName("", "FirstName");
-    private final static QName _PhoneNumber_QNAME = new QName("", "PhoneNumber");
-    private final static QName _LastName_QNAME = new QName("", "LastName");
+    private static final  QName _FirstName_QNAME = new QName("", "FirstName");
+    private static final  QName _PhoneNumber_QNAME = new QName("", "PhoneNumber");
+    private static final  QName _LastName_QNAME = new QName("", "LastName");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.chahar.core.jaxb.contact
      * 
      */
     public ObjectFactory() {
+//    	default constructor.
     }
 
     /**
@@ -65,7 +66,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "", name = "FirstName")
     public JAXBElement<String> createFirstName(String value) {
-        return new JAXBElement<String>(_FirstName_QNAME, String.class, null, value);
+        return new JAXBElement<>(_FirstName_QNAME, String.class, null, value);
     }
 
     /**
@@ -74,7 +75,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "", name = "PhoneNumber")
     public JAXBElement<BigInteger> createPhoneNumber(BigInteger value) {
-        return new JAXBElement<BigInteger>(_PhoneNumber_QNAME, BigInteger.class, null, value);
+        return new JAXBElement<>(_PhoneNumber_QNAME, BigInteger.class, null, value);
     }
 
     /**
@@ -83,7 +84,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "", name = "LastName")
     public JAXBElement<String> createLastName(String value) {
-        return new JAXBElement<String>(_LastName_QNAME, String.class, null, value);
+        return new JAXBElement<>(_LastName_QNAME, String.class, null, value);
     }
 
 }
